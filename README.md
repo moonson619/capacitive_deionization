@@ -1,4 +1,4 @@
-# capacitive_deionization
+# Capacitive Deionization (also known as CDI)
 This Gitbub repository contains python-based deep learning models for capacitive deionization process.
 
 For the detailed experiment conditions and information about the model, please see the research paper below.
