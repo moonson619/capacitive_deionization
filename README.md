@@ -20,11 +20,11 @@ The codes have been tested under the environment as follows:
 # Installation
 Python can be installed through an anaconda command as follows:
 
-conda create -n name python=3.7
+```conda create -n name python=3.7```
 
 Install required packages using "pip install" and enclosed "requirements.txt" file as follows:
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 After installation, you need to check that all packages are installed properly as described in the "requirements.txt" file.
 
