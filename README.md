@@ -8,6 +8,7 @@ https://www.sciencedirect.com/science/article/pii/S0011916421003040
 
 # Environments
 The codes have been tested under the environment as follows:
+- python 3.7
 - Anaconda 3
 - Visual Studio Code (version 1.66)
 - Computer
