@@ -1,0 +1,449 @@
+{
+    "config": {
+        "drop_remainder": false,
+        "category": "DL",
+        "mode": "regression",
+        "batch_size": 32,
+        "split_random": true,
+        "val_fraction": 0.2,
+        "indices": null,
+        "train_fraction": 0.7,
+        "save": false,
+        "allow_nan_labels": 0,
+        "nan_filler": null,
+        "seed": 313,
+        "input_features": [
+            "Conductivity_in",
+            "pH_out",
+            "pH_in",
+            "Current",
+            "Voltage"
+        ],
+        "output_features": [
+            "Conductivity_out"
+        ],
+        "intervals": null,
+        "verbosity": 1,
+        "teacher_forcing": false,
+        "dataset_args": {},
+        "ts_args": {
+            "lookback": 9,
+            "forecast_len": 1,
+            "forecast_step": 0,
+            "known_future_inputs": false,
+            "input_steps": 1,
+            "output_steps": 1
+        },
+        "model": {
+            "layers": {
+                "Input": {
+                    "shape": [
+                        9,
+                        5
+                    ],
+                    "name": "Input"
+                },
+                "Reshape": {
+                    "target_shape": [
+                        3,
+                        3,
+                        5
+                    ],
+                    "name": "Reshape"
+                },
+                "TimeDistributed_0": {
+                    "name": "TimeDistributed_0"
+                },
+                "Conv1D_0": {
+                    "filters": 32,
+                    "kernel_size": 5,
+                    "name": "first_conv1d",
+                    "padding": "same"
+                },
+                "LeakyReLU": {
+                    "name": "LeakyReLU"
+                },
+                "TimeDistributed_3": {
+                    "name": "TimeDistributed_3"
+                },
+                "MaxPool1D": {
+                    "pool_size": 3,
+                    "padding": "same",
+                    "name": "MaxPool1D"
+                },
+                "TimeDistributed_4": {
+                    "name": "TimeDistributed_4"
+                },
+                "Flatten": {
+                    "name": "Flatten"
+                },
+                "LSTM_0": {
+                    "units": 32,
+                    "activation": "tanh",
+                    "dropout": 0.4,
+                    "recurrent_dropout": 0.5,
+                    "return_sequences": true,
+                    "name": "LSTM_0"
+                },
+                "ReLU_1": {
+                    "name": "ReLU_1"
+                },
+                "LSTM_1": {
+                    "units": 8,
+                    "activation": "tanh",
+                    "dropout": 0.4,
+                    "recurrent_dropout": 0.5,
+                    "name": "LSTM_1"
+                },
+                "sigmoid_2": {
+                    "name": "sigmoid_2"
+                },
+                "Dense": 1
+            }
+        },
+        "x_transformation": [
+            {
+                "method": "log",
+                "features": [
+                    "Conductivity_in"
+                ]
+            }
+        ],
+        "y_transformation": [
+            {
+                "method": "log",
+                "features": [
+                    "Conductivity_out"
+                ]
+            }
+        ],
+        "composite": false,
+        "lr": 0.007139402737325337,
+        "optimizer": "Adam",
+        "loss": "mse",
+        "quantiles": null,
+        "epochs": 140,
+        "min_val_loss": 0.0001,
+        "patience": 100,
+        "shuffle": true,
+        "save_model": true,
+        "subsequences": 3,
+        "backend": "tensorflow",
+        "buffer_size": 100,
+        "batches_per_epoch": null,
+        "steps_per_epoch": null,
+        "metrics": [
+            "nse"
+        ],
+        "batches": "3d",
+        "prefix": "conVlstm_Opt_runModel_20220613_150049",
+        "kmodel": null,
+        "cross_validator": null,
+        "wandb_config": null,
+        "val_metric": "r2_score",
+        "model_name_": null,
+        "is_custom_model_": false,
+        "x_transformer_": {
+            "scalers_": {
+                "5_0_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_1_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_2_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_3_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_4_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_5_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_6_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_7_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                },
+                "5_8_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        5
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                }
+            },
+            "feature_names": [
+                "Conductivity_in",
+                "pH_out",
+                "pH_in",
+                "Current",
+                "Voltage"
+            ],
+            "config": [
+                {
+                    "method": "log",
+                    "features": [
+                        "Conductivity_in"
+                    ]
+                }
+            ],
+            "is_numpy_": true,
+            "is_dict_": false,
+            "is_list_": false
+        },
+        "y_transformer_": {
+            "scalers_": {
+                "5_log_0": {
+                    "scaler": {
+                        "log": {
+                            "params": {
+                                "feature_dim": "2d"
+                            },
+                            "config": {
+                                "data_dim_": 2
+                            }
+                        }
+                    },
+                    "shape": [
+                        6088,
+                        1
+                    ],
+                    "method": "log",
+                    "features": [
+                        "Conductivity_out"
+                    ],
+                    "replace_zeros": false,
+                    "replace_zeros_with": 1,
+                    "treat_negatives": false,
+                    "kwargs": {},
+                    "negative_indices_": {},
+                    "zero_indices_": {}
+                }
+            },
+            "feature_names": [
+                "Conductivity_out"
+            ],
+            "config": [
+                {
+                    "method": "log",
+                    "features": [
+                        "Conductivity_out"
+                    ]
+                }
+            ],
+            "is_numpy_": true,
+            "is_dict_": false,
+            "is_list_": false
+        }
+    },
+    "method": null,
+    "loss": "tensorflow.python.keras.losses"
+}
