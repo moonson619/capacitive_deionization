@@ -2,9 +2,8 @@
 This Gitbub repository contains python-based deep learning models for capacitive deionization process.
 
 For the detailed experiment conditions and information about the model, please see the research paper below.
+https://www.sciencedirect.com/science/article/pii/S004896972206257X
 https://www.sciencedirect.com/science/article/pii/S0011916421003040
-
-*Another paper is Under Review.
 
 # Environments
 The codes have been tested under the environment as follows:
